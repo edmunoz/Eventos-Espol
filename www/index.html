@@ -20,25 +20,33 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=no" />
+        <link rel="stylesheet" href="jqm/jquery.mobile-1.4.3.min.css" />
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="jqm/jquery.mobile-1.4.3.min.js"></script>
         <title>Hello World</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <div data-role="page">
+            <div data-role="header" data-position="fixed">
+                <h1>Header</h1>
             </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+            <div data-role="content">
+                <h1>Content</h1>
+                <p>The config.xml file's AutoHideSplashScreen setting must be false. To delay hiding the splash screen for two seconds, add a timer such as the following in the deviceready event handler:
+                    setTimeout(function() {
+                        navigator.splashscreen.hide();
+                    }, 2000);
+                splashscreen.show
+
+                Displays the splash screen.
+
+                navigator.splashscreen.show();
+                Your application cannot call navigator.splashscreen.show() until the app has started and the deviceready event has fired. But since typically the splash screen is meant to be visible before your app has started, that would seem to defeat the purpose of the splash screen. Providing some configuration in config.xml will automatically show the splash screen immediately after your app launch and before it has fully started and received the deviceready event. See Icons and Splash Screens for more information on doing this configuration. For this reason, it is unlikely you need to call navigator.splashscreen.show() to make the splash screen visible for app startup.</p>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h1>Footer</h1>
+            </div>
+        </div>        
     </body>
 </html>
